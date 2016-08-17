@@ -46,15 +46,13 @@ bot.on("message", function(message) {
 			
 		}else if (input.indexOf("!choose ") === 0){
 			
-			var args = input.substring(7);
+			var args = message.content.substring(7);
 			
 			args = args.trim();
 			
 			var result = dr.choose(args);
-			
-			var response = "You asked me to choose between " + args + " and I choose " + result.trim();
-			
-			bot.reply(message, response);
+						
+			bot.reply(message, result);
 			
 		}else if (input.indexOf("!imgme ") === 0){
 			

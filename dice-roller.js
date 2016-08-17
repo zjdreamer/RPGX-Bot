@@ -46,9 +46,25 @@ exports.choose = (args) => {
 	
 	if(choices.length > 0){
 		var ran = Math.floor(Math.random() * choices.length);
-	
-		return choices[ran];
+		
+		var output = "You asked me to choose between ";
+		for (var i = 0; i < choices.length; i++){
+			if(i === choices.length-1){
+				
+				output += " and " + choices[i];
+				
+			}else{
+				
+				output += choices[i] + ", ";
+				
+			}
+		}
+		
+		output += ", and I choose " + choices[ran] + ".";
+		
+		return output;
+		
 	}else{
-		return "nothing, because you gave me nothing.";
+		return "You asked me to choose between nothing, and I choose nothing because you gave me nothing.";
 	}
 }
