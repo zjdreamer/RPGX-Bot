@@ -160,6 +160,7 @@ bot.on("message", function(message) {
 		}else if (input === "!help"){
 			var commands = "```!kedkilljoy\n!roll - Usage '!roll xdy+z'\n!cocktail\n!martini\n!picard - Use in case of Zug\n!zug\n!choose <choice 1>, <choice 2>, ..., <choice N>\n!zugfacts - $100% true facts about Grozug gro-Zug\n!addzugfacts <fact> - May only be used by staff, my owner, and Gro-Zug himself.\n!roleme <role name> - Gives yourself the specified non-mod role\n!unroleme <role name> removes the specified non-mod role from you\n!imgme <search criteria> - BETA FEATURE: Preforms a google image search and returns a random result.```";
 			bot.sendMessage(message, commands);
+		}else if (input === "!bugfinders"){
 			var bugfinders = "```Goplayer7 and Ziether - Broke the dice roller.";
 			bugfinders += "\nAethera - Discovered an edgecase in the dice roller.";
 			bugfinders += "\nGrozug gro-Zug - Broke everything";
