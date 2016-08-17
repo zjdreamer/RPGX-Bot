@@ -32,7 +32,7 @@ exports.roll = (args) => {
 	
 	for(i = 0; i < num; i++){
 		
-		result += Math.floor(Math.random() * (high - low) + low);
+		result += Math.floor(Math.random() * (high - low + 1) + low);
 		
 	}
 	result += plus;
