@@ -7,6 +7,11 @@
 exports.roll = (args) => {
 	
 	var num = parseInt(args.substring(0,args.indexOf("d")));
+	if(!(num > 0)){
+		num = 1;
+	}if (num > 1000){
+		return "nothing, because you're just trying to break it. Ziether and GoPlayer7 ruined that for everyone.";
+	}
 	var rawVal = args.substring(0,args.indexOf("d"));
 	var plus = 0;
 	
@@ -33,4 +38,17 @@ exports.roll = (args) => {
 	result += plus;
 	
 	return result;
+}
+
+exports.choose = (args) => {
+	
+	var choices = args.split(",");
+	
+	if(choices.length > 0){
+		var ran = Math.floor(Math.random() * (choices.length - 1));
+	
+		return choices[ran];
+	}else{
+		return "nothing, because you gave me nothing.";
+	}
 }
