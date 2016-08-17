@@ -29,7 +29,7 @@ exports.getZugFact = () => {
 	
 	var numZugFacts = facts.length;
 	
-	var ran = Math.floor(Math.random() * (numZugFacts-1));
+	var ran = Math.floor(Math.random() * numZugFacts);
 	return facts[ran];
 	
 }

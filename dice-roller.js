@@ -45,7 +45,7 @@ exports.choose = (args) => {
 	var choices = args.split(",");
 	
 	if(choices.length > 0){
-		var ran = Math.floor(Math.random() * (choices.length - 1));
+		var ran = Math.floor(Math.random() * choices.length);
 	
 		return choices[ran];
 	}else{

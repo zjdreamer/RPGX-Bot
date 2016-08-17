@@ -65,8 +65,7 @@ bot.on("message", function(message) {
 					num: 20
 				}
 				).then(function (images){
-				var ran = Math.floor(Math.random() * (20-1));
-				//bot.reply(message, images[ran]['url']);
+				var ran = Math.floor(Math.random() * 20);
 				var url = images[ran]['url'];
 				url = url.substring(0, url.indexOf(".jpg")+4);
 				bot.sendFile(message, url);
@@ -160,6 +159,11 @@ bot.on("message", function(message) {
 			}		
 		}else if (input === "!help"){
 			var commands = "```!kedkilljoy\n!roll - Usage '!roll xdy+z'\n!cocktail\n!martini\n!picard - Use in case of Zug\n!zug\n!choose <choice 1>, <choice 2>, ..., <choice N>\n!zugfacts - $100% true facts about Grozug gro-Zug\n!addzugfacts <fact> - May only be used by staff, my owner, and Gro-Zug himself.\n!roleme <role name> - Gives yourself the specified non-mod role\n!unroleme <role name> removes the specified non-mod role from you\n!imgme <search criteria> - BETA FEATURE: Preforms a google image search and returns a random result.```";
+			bot.sendMessage(message, commands);
+			var bugfinders = "```Goplayer7 and Ziether - Broke the dice roller.";
+			bugfinders += "\nAethera - Discovered an edgecase in the dice roller.";
+			bugfinders += "\nGrozug gro-Zug - Broke everything";
+			bugfinders += "```";
 			bot.sendMessage(message, commands);
 		}
 });
