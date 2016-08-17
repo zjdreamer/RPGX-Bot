@@ -35,6 +35,7 @@ bot.on("message", function(message) {
 		}else if (input.indexOf("!roll ") === 0){
 			
 			var args = input.substring(5);
+			
 			args = args.trim();
 			
 			var result = dr.roll(args);
@@ -42,9 +43,11 @@ bot.on("message", function(message) {
 			var response = "You asked me to roll " + args + " and I got " + result;
 			
 			bot.reply(message, response);
+			
 		}else if (input.indexOf("!choose ") === 0){
 			
 			var args = input.substring(7);
+			
 			args = args.trim();
 			
 			var result = dr.choose(args);
@@ -52,23 +55,30 @@ bot.on("message", function(message) {
 			var response = "You asked me to choose between " + args + " and I choose " + result.trim();
 			
 			bot.reply(message, response);
+			
 		}else if (input.indexOf("!imgme ") === 0){
 			
 			//bot.reply(message, "Pre-search");
 			
 			client.search(input.substr(5), {
+				
 					page: 1,
 					safe: 'medium',
 					gl: 'US',
 					googlehost: 'google.com',
 					fileType: 'jpg',
 					num: 20
-				}
-				).then(function (images){
+					
+				}).then(function (images){
+					
 				var ran = Math.floor(Math.random() * 20);
+				
 				var url = images[ran]['url'];
+				
 				url = url.substring(0, url.indexOf(".jpg")+4);
+				
 				bot.sendFile(message, url);
+				
 			});
 			
 		}else if (input === "!cocktail"){
@@ -90,6 +100,7 @@ bot.on("message", function(message) {
 		}else if (input === "!zugfacts"){
 			
 			messages = zf.getZugFact();
+			
 			bot.reply(message, messages);
 			
 		}else if (input === "!smokebomb"){
@@ -99,6 +110,7 @@ bot.on("message", function(message) {
 		}else if (input.indexOf("!addzugfacts ") === 0){
 			
 			var output = zf.addZugFacts(bot.memberHasRole(message.author, message.server.roles.get("name", "Staff")), message.author.name, message.content.substring(12));
+			
 			bot.sendMessage(message, output);
 			
 		}else if (input.indexOf("!roleme ") === 0){
@@ -111,7 +123,8 @@ bot.on("message", function(message) {
 				
 				
 
-				try{	
+				try{
+				
 					bot.addUserToRole(message.author, message.server.roles.get("name", role), function(err){
 						
 						if(err){
@@ -127,6 +140,7 @@ bot.on("message", function(message) {
 				}catch(e){
 					
 					bot.reply(message, "I cannot do that here, please ask me in a public channel, in the server you wish me to add the role.");
+					
 				}
 	
 			}
@@ -141,6 +155,7 @@ bot.on("message", function(message) {
 				try{
 
 					bot.removeUserFromRole(message.author, message.server.roles.get("name", role), function(err){
+						
 						if(err){
 						
 							bot.reply(message, err);
@@ -158,14 +173,19 @@ bot.on("message", function(message) {
 				}
 			}		
 		}else if (input === "!help"){
+			
 			var commands = "```!kedkilljoy\n!roll - Usage '!roll xdy+z'\n!cocktail\n!martini\n!picard - Use in case of Zug\n!zug\n!choose <choice 1>, <choice 2>, ..., <choice N>\n!zugfacts - $100% true facts about Grozug gro-Zug\n!addzugfacts <fact> - May only be used by staff, my owner, and Gro-Zug himself.\n!roleme <role name> - Gives yourself the specified non-mod role\n!unroleme <role name> removes the specified non-mod role from you\n!imgme <search criteria> - BETA FEATURE: Preforms a google image search and returns a random result.\n!bugfinders - People who helped improve the bot by breaking it```";
+			
 			bot.sendMessage(message, commands);
+			
 		}else if (input === "!bugfinders"){
+			
 			var bugfinders = "```Goplayer7 and Ziether - Broke the dice roller.";
 			bugfinders += "\nAethera - Discovered an edgecase in the dice roller.";
 			bugfinders += "\nGrozug gro-Zug - Broke everything";
 			bugfinders += "```";
-			bot.sendMessage(message, commands);
+			
+			bot.sendMessage(message, bugfinders);
 		}
 });
 
@@ -176,18 +196,10 @@ bot.loginWithToken("MjE0MTk1NTEzNjYxMDYzMTc4.CpFcog.efWBCbD0PuwQ9Y1bIQCBCzUneUg"
 
 TODO:
 
-Implement role assigmnent
+Refactor !help to make it not just a single massive line.
 
 
-var messages = "Something broke because DreaM is a moron.";
-			var filepath = "C:\\Users\\zjdre_000\\Documents\\RPGX Discord Bot\\zugfacts.txt";
-			if(bot.memberHasRole(message.author, message.server.roles.get("name", "Staff")) || message.author.name === "Grozug gro-Zug" || message.author.name === "DreaM"){
-				bot.reply(message, "Zug fact approved.");
-				var output = message.content.substring(12).trim();
-				output += "\n";
-				fs.appendFile(filepath, output, function(err){
-					//bot.sendMessage(message, messages);
-				});
+
 
 
 */
