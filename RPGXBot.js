@@ -11,10 +11,10 @@ var fs = require('fs');
 const googleImages = require('google-images');
 const zf = require('./zug-facts');
 const dr = require('./dice-roller');
-'use strict'
+"use strict";
 
 var bot = new Discord.Client();
-let client = googleImages('005434864978808280474:acekhmfof1i', 'AIzaSyA93IcNZ0tNbL5GML2JoFmz105izKQNf74');
+//let client = googleImages('005434864978808280474:acekhmfof1i', 'AIzaSyA93IcNZ0tNbL5GML2JoFmz105izKQNf74');
 
 //var roleList = ["Pretty in Pink", "RPGX Member", "Community Supporter"];
 
@@ -54,7 +54,7 @@ bot.on("message", function(message) {
 						
 			bot.reply(message, result);
 			
-		}else if (input.indexOf("!imgme ") === 0){
+		}/*else if (input.indexOf("!imgme ") === 0){
 			
 			//bot.reply(message, "Pre-search");
 			
@@ -79,7 +79,7 @@ bot.on("message", function(message) {
 				
 			});
 			
-		}else if (input === "!cocktail"){
+		}*/else if (input === "!cocktail"){
 			
 			bot.sendFile(message, "https://media.giphy.com/media/HV9kRik6zvzwY/giphy.gif");
 			
@@ -172,7 +172,7 @@ bot.on("message", function(message) {
 			}		
 		}else if (input === "!help"){
 			
-			var commands = "```!kedkilljoy\n!roll - Usage '!roll xdy+z'\n!cocktail\n!martini\n!picard - Use in case of Zug\n!zug\n!choose <choice 1>, <choice 2>, ..., <choice N>\n!zugfacts - $100% true facts about Grozug gro-Zug\n!addzugfacts <fact> - May only be used by staff, my owner, and Gro-Zug himself.\n!roleme <role name> - Gives yourself the specified non-mod role\n!unroleme <role name> removes the specified non-mod role from you\n!imgme <search criteria> - BETA FEATURE: Preforms a google image search and returns a random result.\n!bugfinders - People who helped improve the bot by breaking it```";
+			var commands = "```!kedkilljoy\n!roll - Usage '!roll xdy+z'\n!cocktail\n!martini\n!picard - Use in case of Zug\n!zug\n!choose <choice 1>, <choice 2>, ..., <choice N>\n!zugfacts - $100% true facts about Grozug gro-Zug\n!addzugfacts <fact> - May only be used by staff, my owner, and Gro-Zug himself.\n!roleme <role name> - Gives yourself the specified non-mod role\n!unroleme <role name> removes the specified non-mod role from you\n!imgme <search criteria> - BETA FEATURE (currently disabled): Preforms a google image search and returns a random result.\n!bugfinders - People who helped improve the bot by breaking it```";
 			
 			bot.sendMessage(message, commands);
 			
