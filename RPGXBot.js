@@ -141,6 +141,10 @@ bot.on("message", function(message) {
 					
 				}
 	
+			}else{
+
+				bot.reply(message, "That is not a role I can give you.");
+
 			}
 		}else if (input.indexOf("!unroleme ") === 0){
 			
@@ -169,6 +173,10 @@ bot.on("message", function(message) {
 					bot.reply(message, "I cannot do that here, please ask me in a public channel, in the server you wish me to add the role.");
 					
 				}
+			}else{
+
+				bot.reply(message, "I cannot remove that role from you.");
+
 			}		
 		}else if (input === "!help"){
 			
