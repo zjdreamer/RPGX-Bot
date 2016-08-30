@@ -14,7 +14,7 @@ const dr = require('./dice-roller');
 "use strict";
 
 var bot = new Discord.Client();
-//let client = googleImages('005434864978808280474:acekhmfof1i', 'AIzaSyA93IcNZ0tNbL5GML2JoFmz105izKQNf74');
+//let client = googleImages('CSE_KEY', 'API_KEY');
 
 //var roleList = ["Pretty in Pink", "RPGX Member", "Community Supporter"];
 
@@ -195,7 +195,7 @@ bot.on("message", function(message) {
 		}
 });
 
-bot.loginWithToken("MjE0MTk1NTEzNjYxMDYzMTc4.CpFcog.efWBCbD0PuwQ9Y1bIQCBCzUneUg");
+bot.loginWithToken("DISCORD_BOT_KEY");
 
 
 /*
